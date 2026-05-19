@@ -31,7 +31,7 @@ The `s2-html` router may select another skill from this same plugin. Development
 
 - Dark mode is the default visual baseline.
 - The artifact detects the viewer's system theme unless a stored theme choice exists.
-- The theme control must stay subtle and allow auto, dark, and light modes.
+- The theme control must stay subtle and allow dark and light modes.
 - Keyboard shortcuts should be available where the artifact supports them, with a compact legend that stays out of the way.
 - Buttons should prefer compact inline SVG icons and short labels. Add boxed shortcut glyphs only for shortcuts that are actually implemented.
 - Shortcut behavior must be context-aware: global keys handle document actions, section keys handle the active section, and card action keys affect only the active card.
