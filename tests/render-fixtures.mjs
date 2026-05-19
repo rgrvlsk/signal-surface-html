@@ -8,7 +8,7 @@ const root = resolve(new URL("..", import.meta.url).pathname);
 const fixturesDir = join(root, "fixtures");
 const createScript = join(root, "surface-kit/scripts/create-surface-project.mjs");
 const renderScript = join(root, "surface-kit/scripts/render-surface.mjs");
-const out = mkdtempSync(join(tmpdir(), "signal-surface-html-fixtures-"));
+const out = mkdtempSync(join(tmpdir(), "surface-signal-html-fixtures-"));
 const results = [];
 
 for (const file of readdirSync(fixturesDir).filter((name) => name.endsWith(".json")).sort()) {

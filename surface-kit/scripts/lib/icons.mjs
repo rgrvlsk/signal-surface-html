@@ -88,7 +88,7 @@ async function writeCache(iconName, svg) {
 }
 
 function cacheDir() {
-  return join(tmpdir(), "signal-surface-html-icon-cache", `${iconProvider.name}-${iconProvider.version}`);
+  return join(tmpdir(), "surface-signal-html-icon-cache", `${iconProvider.name}-${iconProvider.version}`);
 }
 
 function cachePath(iconName) {

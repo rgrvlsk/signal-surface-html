@@ -77,7 +77,7 @@ const script = result.outputFiles[0].text.replaceAll("</script", "<\\/script");
 const css = `${runtimeCss}\n${themeCss}`;
 const html = [
   "<!doctype html>",
-  "<html lang=\"en\" data-signal-surface-output=\"compiled\">",
+  "<html lang=\"en\" data-surface-signal-output=\"compiled\">",
   "<head>",
   "  <meta charset=\"utf-8\">",
   "  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">",

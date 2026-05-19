@@ -29,7 +29,7 @@ function run(args) {
 }
 
 test("creates a temporary source project with source files as the authority", async () => {
-  const out = mkdtempSync(join(tmpdir(), "signal-surface-html-test-"));
+  const out = mkdtempSync(join(tmpdir(), "surface-signal-html-test-"));
   const stdout = run([createScript, fixture, "--out", out]);
   const payload = JSON.parse(stdout);
 
@@ -44,14 +44,14 @@ test("creates a temporary source project with source files as the authority", as
 });
 
 test("renders self-contained disposable HTML from the source project", async () => {
-  const out = mkdtempSync(join(tmpdir(), "signal-surface-html-test-"));
+  const out = mkdtempSync(join(tmpdir(), "surface-signal-html-test-"));
   const project = JSON.parse(run([createScript, fixture, "--out", out])).projectRoot;
   const rendered = JSON.parse(run([renderScript, project]));
   const html = readFileSync(rendered.outputFile, "utf8");
 
   assert.equal(rendered.outputFile, join(project, "dist/index.html"));
   assert.match(rendered.sourceHash, /^[a-f0-9]{16}$/);
-  assert.match(html, /data-signal-surface-output="compiled"/);
+  assert.match(html, /data-surface-signal-output="compiled"/);
   assert.match(html, /plan-studio-fixture/);
   assert.doesNotMatch(html, /<(script|link|img|iframe)\b[^>]+(?:src|href)=["']https?:\/\//i);
   assert.doesNotMatch(html, /mermaid/i);
@@ -64,13 +64,13 @@ test("renders self-contained disposable HTML from the source project", async () 
 });
 
 test("renders dark-first UX controls without visible agent-only notes", async () => {
-  const out = mkdtempSync(join(tmpdir(), "signal-surface-html-test-"));
+  const out = mkdtempSync(join(tmpdir(), "surface-signal-html-test-"));
   const project = JSON.parse(run([createScript, fixture, "--out", out])).projectRoot;
   const rendered = JSON.parse(run([renderScript, project]));
   const html = readFileSync(rendered.outputFile, "utf8");
 
   assert.match(html, /color-scheme:\s*dark light/);
-  assert.match(html, /signal-surface-html-theme/);
+  assert.match(html, /surface-signal-html-theme/);
   assert.match(html, /prompt-drawer/);
   assert.match(html, /shortcut-legend/);
   assert.match(html, /Prompt/);
@@ -81,7 +81,7 @@ test("renders dark-first UX controls without visible agent-only notes", async ()
 });
 
 test("renders compact icon buttons with subtle shortcut glyphs", async () => {
-  const out = mkdtempSync(join(tmpdir(), "signal-surface-html-test-"));
+  const out = mkdtempSync(join(tmpdir(), "surface-signal-html-test-"));
   const project = JSON.parse(run([createScript, fixture, "--out", out])).projectRoot;
   const rendered = JSON.parse(run([renderScript, project]));
   const html = readFileSync(rendered.outputFile, "utf8");
@@ -115,7 +115,7 @@ test("shortcuts are declared once and scoped away from form controls", () => {
 });
 
 test("cherry-picks Lucide icons from the pinned CDN at build time", async () => {
-  const out = mkdtempSync(join(tmpdir(), "signal-surface-html-test-"));
+  const out = mkdtempSync(join(tmpdir(), "surface-signal-html-test-"));
   const project = JSON.parse(run([createScript, fixture, "--out", out])).projectRoot;
   const rendered = JSON.parse(run([renderScript, project]));
   const html = readFileSync(rendered.outputFile, "utf8");
@@ -131,7 +131,7 @@ test("cherry-picks Lucide icons from the pinned CDN at build time", async () => 
 });
 
 test("rebuilds from source and ignores stale compiled-html edits", async () => {
-  const out = mkdtempSync(join(tmpdir(), "signal-surface-html-test-"));
+  const out = mkdtempSync(join(tmpdir(), "surface-signal-html-test-"));
   const project = JSON.parse(run([createScript, fixture, "--out", out])).projectRoot;
   const first = JSON.parse(run([renderScript, project]));
   writeFileSync(first.outputFile, "BROKEN COMPILED EDIT");
@@ -152,7 +152,7 @@ test("rebuilds from source and ignores stale compiled-html edits", async () => {
 });
 
 test("imports exported feedback into the source project feedback folder", async () => {
-  const out = mkdtempSync(join(tmpdir(), "signal-surface-html-test-"));
+  const out = mkdtempSync(join(tmpdir(), "surface-signal-html-test-"));
   const project = JSON.parse(run([createScript, fixture, "--out", out])).projectRoot;
   const feedbackPath = join(out, "feedback.txt");
   writeFileSync(
@@ -191,10 +191,30 @@ test("published skill instructions stay self-contained at runtime", () => {
   assert.doesNotMatch(skillText, /frontend-design|uncodixfy|skill-creator|superpowers:/i);
 });
 
+test("plugin identity uses surface-signal-html with s2-html as shorthand alias", () => {
+  const packageJson = JSON.parse(readFileSync(join(root, "package.json"), "utf8"));
+  const pluginJson = JSON.parse(readFileSync(join(root, ".codex-plugin/plugin.json"), "utf8"));
+  const skillRoot = join(root, "skills");
+  const skillNames = readdirSync(skillRoot);
+  const canonical = readFileSync(join(skillRoot, "surface-signal-html/SKILL.md"), "utf8");
+  const alias = readFileSync(join(skillRoot, "s2-html/SKILL.md"), "utf8");
+
+  assert.equal(packageJson.name, "surface-signal-html");
+  assert.equal(pluginJson.name, "surface-signal-html");
+  assert.ok(skillNames.includes("surface-signal-html"));
+  assert.ok(skillNames.includes("s2-html"));
+  assert.match(canonical, /^name: surface-signal-html$/m);
+  assert.match(alias, /^name: s2-html$/m);
+  assert.match(alias, /alias shorthand/i);
+  assert.match(alias, /\$surface-signal-html/);
+  assert.match(pluginJson.interface.longDescription, /\$surface-signal-html/);
+  assert.match(pluginJson.interface.longDescription, /\$s2-html/);
+});
+
 test("meta skill routes tasks and every skill has a full-installation fallback", () => {
   const skillRoot = join(root, "skills");
   const skillNames = readdirSync(skillRoot);
-  const s2 = readFileSync(join(skillRoot, "s2-html/SKILL.md"), "utf8");
+  const s2 = readFileSync(join(skillRoot, "surface-signal-html/SKILL.md"), "utf8");
 
   assert.match(s2, /meta-skill/i);
   assert.match(s2, /analy[sz]e/i);
@@ -204,8 +224,8 @@ test("meta skill routes tasks and every skill has a full-installation fallback",
 
   for (const name of skillNames) {
     const text = readFileSync(join(skillRoot, name, "SKILL.md"), "utf8");
-    assert.match(text, /\*\*Signal Surface HTML requires the full plugin installation\.\*\*/);
-    assert.match(text, /https:\/\/github\.com\/rgrvlsk\/signal-surface-html/);
+    assert.match(text, /\*\*Surface Signal HTML requires the full plugin installation\.\*\*/);
+    assert.match(text, /https:\/\/github\.com\/rgrvlsk\/surface-signal-html/);
     assert.match(text, /\.\.\/\.\.\/surface-kit\/scripts\/render-surface\.mjs/);
   }
 });

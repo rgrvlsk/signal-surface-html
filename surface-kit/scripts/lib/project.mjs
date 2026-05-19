@@ -2,7 +2,7 @@ import { createHash } from "node:crypto";
 import { mkdir, readdir, readFile, stat, writeFile } from "node:fs/promises";
 import { basename, join, relative } from "node:path";
 
-export const defaultTempRoot = "/tmp/signal-surface-html";
+export const defaultTempRoot = "/tmp/surface-signal-html";
 
 export function slugify(value) {
   return String(value || "surface")

@@ -15,7 +15,7 @@ body:
     id: proposal
     attributes:
       label: Proposed solution
-      description: What should Signal Surface HTML do?
+      description: What should Surface Signal HTML do?
     validations:
       required: true
   - type: dropdown

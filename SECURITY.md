@@ -19,4 +19,4 @@ Please do not open a public GitHub issue for security reports until the issue ha
 
 ## Security Notes
 
-Signal Surface HTML generates self-contained HTML artifacts from editable source projects. Reports involving script injection, unsafe SVG handling, external runtime loading, feedback import parsing, or prompt export leakage are especially useful.
+Surface Signal HTML generates self-contained HTML artifacts from editable source projects. Reports involving script injection, unsafe SVG handling, external runtime loading, feedback import parsing, or prompt export leakage are especially useful.

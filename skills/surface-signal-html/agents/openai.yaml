@@ -1,0 +1,4 @@
+interface:
+  display_name: "Surface Signal HTML"
+  short_description: "Surface Signal HTML canonical meta-router"
+  default_prompt: "Use $surface-signal-html to analyze this task, choose the right Surface Signal HTML skill, and create the artifact."

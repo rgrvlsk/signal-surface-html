@@ -18,7 +18,7 @@ const args = parseArgs(process.argv.slice(2));
 const inputPath = args._[0];
 
 if (!inputPath) {
-  console.error("Usage: create-surface-project.mjs <spec.json> [--out /tmp/signal-surface-html]");
+  console.error("Usage: create-surface-project.mjs <spec.json> [--out /tmp/surface-signal-html]");
   process.exit(1);
 }
 
@@ -54,7 +54,7 @@ if (spec.data && typeof spec.data === "object") {
 
 const surface = {
   artifactId,
-  artifactType: spec.artifactType || "signal-surface-html",
+  artifactType: spec.artifactType || "surface-signal-html",
   title: spec.title || artifactId,
   summary: spec.summary || "",
   freshSessionContext: spec.freshSessionContext || "",

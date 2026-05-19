@@ -33,7 +33,7 @@ const statusShortcuts = {
   needs_change: shortcutCatalog.change
 };
 
-const themeStorageKey = "signal-surface-html-theme";
+const themeStorageKey = "surface-signal-html-theme";
 const themeOptions = [
   { value: "auto", label: "Auto", icon: "auto" },
   { value: "dark", label: "Dark", icon: "moon" },
@@ -334,7 +334,7 @@ function Surface({ initial }) {
         <div class="brand">
           <span class="brand-mark" aria-hidden="true">S</span>
           <div>
-            <strong>Signal Surface HTML</strong>
+            <strong>Surface Signal HTML</strong>
             <span>{surface.artifactType || "artifact"}</span>
           </div>
         </div>
@@ -356,7 +356,7 @@ function Surface({ initial }) {
       <main class="surface-main">
         <header class="surface-header">
           <div class="title-group">
-            <h1>{surface.title || "Signal Surface HTML"}</h1>
+            <h1>{surface.title || "Surface Signal HTML"}</h1>
             {surface.summary && <p>{surface.summary}</p>}
           </div>
           <div class="header-tools">
@@ -715,7 +715,7 @@ function buildPrompt({ surface, documentState, comments, nextAction }) {
   };
 
   return [
-    "Signal Surface HTML response. This is self-contained for a fresh agent session.",
+    "Surface Signal HTML response. This is self-contained for a fresh agent session.",
     "",
     `Artifact: ${surface.artifactId || "n/a"} (${surface.artifactType || "unknown"})`,
     `Source project: ${surface.projectRoot || "n/a"}`,

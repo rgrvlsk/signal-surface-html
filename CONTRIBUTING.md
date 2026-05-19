@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for considering a contribution to Signal Surface HTML. This project is a Codex plugin, so changes should keep the skills, fixture specs, and shared `surface-kit` runtime in sync.
+Thanks for considering a contribution to Surface Signal HTML. This project is a Codex plugin, so changes should keep the skills, fixture specs, and shared `surface-kit` runtime in sync.
 
 ## Development Setup
 

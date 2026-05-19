@@ -1,4 +1,4 @@
-# Signal Surface HTML Contracts
+# Surface Signal HTML Contracts
 
 ## Source Project Rule
 
@@ -7,7 +7,7 @@ Every artifact is a temporary source project. `src/`, `surface.json`, and `feedb
 Default layout:
 
 ```text
-/tmp/signal-surface-html/<artifact-id>/
+/tmp/surface-signal-html/<artifact-id>/
   surface.json
   src/document.json
   src/content/*.md
@@ -23,7 +23,7 @@ If only compiled HTML exists, treat it as read-only review output. Regenerate a 
 
 ## Runtime Independence
 
-Signal Surface HTML skills are self-contained when they run. Do not invoke third-party skills, design helpers, browser-design skills, or unrelated plugins to create a normal artifact. Use the current skill instructions, this contract, and the shared `surface-kit` scripts.
+Surface Signal HTML skills are self-contained when they run. Do not invoke third-party skills, design helpers, browser-design skills, or unrelated plugins to create a normal artifact. Use the current skill instructions, this contract, and the shared `surface-kit` scripts.
 
 The `s2-html` router may select another skill from this same plugin. Development and validation work on the plugin itself may use external tooling.
 
@@ -109,8 +109,8 @@ From the plugin root:
 
 ```bash
 node surface-kit/scripts/create-surface-project.mjs fixtures/plan-studio.json
-node surface-kit/scripts/render-surface.mjs /tmp/signal-surface-html/plan-studio-fixture
-node surface-kit/scripts/import-feedback.mjs /tmp/signal-surface-html/plan-studio-fixture feedback.txt
+node surface-kit/scripts/render-surface.mjs /tmp/surface-signal-html/plan-studio-fixture
+node surface-kit/scripts/import-feedback.mjs /tmp/surface-signal-html/plan-studio-fixture feedback.txt
 ```
 
 ## Prompt Export

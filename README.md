@@ -1,16 +1,16 @@
-# Signal Surface HTML
+# Surface Signal HTML
 
-[![CI](https://github.com/rgrvlsk/signal-surface-html/actions/workflows/ci.yml/badge.svg)](https://github.com/rgrvlsk/signal-surface-html/actions/workflows/ci.yml)
+[![CI](https://github.com/rgrvlsk/surface-signal-html/actions/workflows/ci.yml/badge.svg)](https://github.com/rgrvlsk/surface-signal-html/actions/workflows/ci.yml)
 
-Signal Surface HTML is a Codex plugin for turning plans, reviews, risk lists, research, and roadmap decisions into interactive, self-contained HTML artifacts.
+Surface Signal HTML is a Codex plugin for turning plans, reviews, risk lists, research, and roadmap decisions into interactive, self-contained HTML artifacts.
 
 It is built for work that is too nuanced for a plain Markdown checklist. Each artifact is compiled from an editable source project, so follow-up sessions edit structured source files and rebuild instead of patching disposable HTML output.
 
-![Signal Surface HTML preview](docs/assets/signal-surface-preview.gif)
+![Surface Signal HTML preview](docs/assets/surface-signal-preview.gif)
 
 ## What You Get
 
-- A router skill, `$s2-html`, that chooses the right artifact type for the task.
+- A canonical router skill, `$surface-signal-html`, with `$s2-html` as the shorthand alias.
 - Ten specialized skills for plans, reviews, feature explainers, presentations, ADRs, risks, roadmaps, QA triage, migrations, and research.
 - A shared `surface-kit` compiler and runtime for consistent offline HTML output.
 - Reviewer controls for comments, approvals, rejections, deferrals, item edits, and reordering when the artifact type supports them.
@@ -18,7 +18,13 @@ It is built for work that is too nuanced for a plain Markdown checklist. Each ar
 
 ## Quick Start
 
-Ask Signal Scout to choose the right surface:
+Ask Surface Signal HTML to choose the right surface:
+
+```text
+$surface-signal-html turn this release review into an approval board
+```
+
+For shorter prompts, use the alias:
 
 ```text
 $s2-html turn this release review into an approval board
@@ -39,7 +45,7 @@ The skill creates a temporary source project, renders `dist/index.html`, and poi
 Install the complete plugin from:
 
 ```text
-https://github.com/rgrvlsk/signal-surface-html
+https://github.com/rgrvlsk/surface-signal-html
 ```
 
 Do not copy only `skills/`. Every skill depends on the bundled `surface-kit` scripts and runtime.
@@ -47,14 +53,15 @@ Do not copy only `skills/`. Every skill depends on the bundled `surface-kit` scr
 If a partial installation is detected, skills stop with:
 
 ```markdown
-## **Signal Surface HTML requires the full plugin installation.** Install the complete plugin from https://github.com/rgrvlsk/signal-surface-html, then retry this skill. This skill cannot generate source-backed HTML without `surface-kit`.
+## **Surface Signal HTML requires the full plugin installation.** Install the complete plugin from https://github.com/rgrvlsk/surface-signal-html, then retry this skill. This skill cannot generate source-backed HTML without `surface-kit`.
 ```
 
 ## Skill Catalog
 
 | Skill | Best for |
 | --- | --- |
-| `s2-html` / **Signal Scout** | Routing a task to the right Signal Surface skill. |
+| `surface-signal-html` | Canonical router for choosing the right Surface Signal skill. |
+| `s2-html` | Shorthand alias for `surface-signal-html`. |
 | `plan-studio` | Editable RC plans, planning proposals, implementation plans, and scope review. |
 | `verdict-rundown` | Review findings, regressions, Q&A items, backlog candidates, and approve/reject/defer lists. |
 | `feature-storyboard` | Graphical feature or workflow explainers with comment-only feedback. |
@@ -71,7 +78,7 @@ If a partial installation is detected, skills stop with:
 Generated artifacts use this source-backed layout:
 
 ```text
-/tmp/signal-surface-html/<artifact-id>/
+/tmp/surface-signal-html/<artifact-id>/
   surface.json
   src/
     document.json

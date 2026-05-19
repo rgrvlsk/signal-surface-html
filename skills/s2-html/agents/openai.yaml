@@ -1,4 +1,4 @@
 interface:
-  display_name: "Signal Scout"
-  short_description: "Signal Surface HTML meta-router"
-  default_prompt: "Use $s2-html to analyze this task, choose the right Signal Surface HTML skill, and create the artifact."
+  display_name: "S2 HTML"
+  short_description: "Surface Signal HTML shorthand alias"
+  default_prompt: "Use $s2-html as shorthand for $surface-signal-html to choose the right Surface Signal HTML skill and create the artifact."
