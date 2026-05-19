@@ -6,7 +6,7 @@ Signal Surface HTML is a Codex plugin for turning plans, reviews, risk lists, re
 
 It is built for work that is too nuanced for a plain Markdown checklist. Each artifact is compiled from an editable source project, so follow-up sessions edit structured source files and rebuild instead of patching disposable HTML output.
 
-![Signal Surface HTML preview](docs/assets/signal-surface-preview.svg)
+![Signal Surface HTML preview](docs/assets/signal-surface-preview.gif)
 
 ## What You Get
 
