@@ -1,0 +1,20 @@
+{
+  "artifactType": "migration-map",
+  "artifactId": "migration-map-fixture",
+  "title": "Billing Migration Plan",
+  "summary": "Plan rollout phases, compatibility gates, and rollback.",
+  "freshSessionContext": "A billing service extraction must preserve current invoices and reporting.",
+  "capabilities": { "editText": true, "addRemoveItems": true, "reorderItems": true, "comments": true, "decisions": true },
+  "document": {
+    "sections": [
+      {
+        "id": "phases",
+        "title": "Phases",
+        "items": [
+          { "id": "shadow-read", "title": "Shadow read", "body": "Run new calculations alongside current results.", "status": "pending", "impact": "Measures drift without affecting invoices." },
+          { "id": "rollback", "title": "Rollback", "body": "Keep old calculation path behind a feature flag.", "status": "pending", "impact": "Allows fast recovery if reconciliation fails." }
+        ]
+      }
+    ]
+  }
+}

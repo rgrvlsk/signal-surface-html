@@ -1,0 +1,20 @@
+{
+  "artifactType": "adr-navigator",
+  "artifactId": "adr-navigator-fixture",
+  "title": "Queue Backend Decision",
+  "summary": "Compare queue backend options and export an ADR-ready decision.",
+  "freshSessionContext": "The team must choose a queue backend for long-running billing jobs.",
+  "capabilities": { "editText": true, "addRemoveItems": true, "reorderItems": true, "comments": true, "decisions": true },
+  "document": {
+    "sections": [
+      {
+        "id": "options",
+        "title": "Options",
+        "items": [
+          { "id": "redis", "title": "Redis queues", "body": "Keep current operational shape and add guardrails.", "status": "pending", "impact": "Lowest migration cost." },
+          { "id": "database", "title": "Database queues", "body": "Use database-backed jobs for easier local inspection.", "status": "pending", "impact": "Simpler debugging but more database load." }
+        ]
+      }
+    ]
+  }
+}

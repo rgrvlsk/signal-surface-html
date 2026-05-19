@@ -1,0 +1,4 @@
+interface:
+  display_name: "Keynote Canvas"
+  short_description: "Projected HTML presentations"
+  default_prompt: "Use $keynote-canvas to design a presentation outline and render it as HTML."

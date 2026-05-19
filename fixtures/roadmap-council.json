@@ -1,0 +1,20 @@
+{
+  "artifactType": "roadmap-council",
+  "artifactId": "roadmap-council-fixture",
+  "title": "Q3 Roadmap Priorities",
+  "summary": "Rank roadmap items, capture dependencies, and cut scope.",
+  "freshSessionContext": "Product and engineering need to choose Q3 work with explicit deferrals.",
+  "capabilities": { "editText": true, "addRemoveItems": true, "reorderItems": true, "comments": true, "decisions": true },
+  "document": {
+    "sections": [
+      {
+        "id": "candidates",
+        "title": "Candidates",
+        "items": [
+          { "id": "billing-audit", "title": "Billing audit trail", "body": "Expose applied pricing source in financial reports.", "status": "pending", "impact": "Improves reconciliation confidence." },
+          { "id": "family-discounts", "title": "Family discount propagation", "body": "Clarify whether discounts should span full family trees.", "status": "pending", "impact": "Prevents incorrect benefit expectations." }
+        ]
+      }
+    ]
+  }
+}

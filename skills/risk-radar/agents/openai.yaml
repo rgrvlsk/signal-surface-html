@@ -1,0 +1,4 @@
+interface:
+  display_name: "Risk Radar"
+  short_description: "Interactive risk review surfaces"
+  default_prompt: "Use $risk-radar to map these risks into an interactive mitigation review."

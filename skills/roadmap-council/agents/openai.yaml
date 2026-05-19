@@ -1,0 +1,4 @@
+interface:
+  display_name: "Roadmap Council"
+  short_description: "Interactive roadmap prioritization"
+  default_prompt: "Use $roadmap-council to prioritize this roadmap in an interactive HTML board."

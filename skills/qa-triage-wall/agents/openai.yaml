@@ -1,0 +1,4 @@
+interface:
+  display_name: "QA Triage Wall"
+  short_description: "Regression and failure triage"
+  default_prompt: "Use $qa-triage-wall to triage these failures in an interactive HTML artifact."

@@ -1,0 +1,43 @@
+name: Feature request
+description: Suggest a new surface, skill behavior, runtime control, or compiler improvement.
+title: "[Feature]: "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What workflow or decision review is hard today?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: What should Signal Surface HTML do?
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Skill instructions
+        - Surface runtime
+        - Compiler scripts
+        - Fixtures or tests
+        - Documentation
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: What workarounds or simpler approaches have you tried?
+  - type: textarea
+    id: examples
+    attributes:
+      label: Example input or artifact
+      description: Include a sample prompt, fixture shape, or rendered artifact notes if useful.

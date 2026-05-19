@@ -1,0 +1,20 @@
+{
+  "artifactType": "keynote-canvas",
+  "artifactId": "keynote-canvas-fixture",
+  "title": "Modernization Readout",
+  "summary": "Projected HTML presentation for a technical leadership review.",
+  "freshSessionContext": "Leadership needs a concise modernization readout with risks, evidence, and next decisions.",
+  "capabilities": { "editText": true, "addRemoveItems": true, "reorderItems": true, "comments": true, "decisions": true },
+  "document": {
+    "sections": [
+      {
+        "id": "outline",
+        "title": "Outline",
+        "items": [
+          { "id": "why-now", "title": "Why now", "body": "Current stack limits test reliability and runtime upgrades.", "status": "pending", "impact": "Frames modernization as risk reduction, not novelty." },
+          { "id": "next-gate", "title": "Next gate", "body": "Approve hermetic test profile and route ownership coverage.", "status": "pending", "impact": "Creates a measurable path to upgrade confidence." }
+        ]
+      }
+    ]
+  }
+}

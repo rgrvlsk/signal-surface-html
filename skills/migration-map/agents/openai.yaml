@@ -1,0 +1,4 @@
+interface:
+  display_name: "Migration Map"
+  short_description: "Migration and rollout planners"
+  default_prompt: "Use $migration-map to plan this rollout with phases, gates, and rollback notes."

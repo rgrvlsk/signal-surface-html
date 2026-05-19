@@ -1,0 +1,4 @@
+interface:
+  display_name: "ADR Navigator"
+  short_description: "Architecture decision surfaces"
+  default_prompt: "Use $adr-navigator to compare architecture options in an interactive HTML decision artifact."

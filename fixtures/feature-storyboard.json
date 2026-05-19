@@ -1,0 +1,22 @@
+{
+  "artifactType": "feature-storyboard",
+  "artifactId": "feature-storyboard-fixture",
+  "title": "Membership Switching Walkthrough",
+  "summary": "Explain the feature workflow and gather comment-only clarification.",
+  "freshSessionContext": "Staff need to understand how membership switching handles overlapping dates and manual financial work.",
+  "capabilities": { "editText": false, "addRemoveItems": false, "reorderItems": false, "comments": true, "decisions": false },
+  "document": {
+    "sections": [
+      {
+        "id": "workflow",
+        "title": "Workflow",
+        "blocks": [
+          { "id": "story", "kind": "text", "title": "Story", "body": "Staff selects a new membership, reviews collision warnings, then confirms replacement when date semantics permit it." }
+        ],
+        "items": [
+          { "id": "same-day", "title": "Same-day replacement", "body": "Blocked because memberships are active through the end date.", "status": "pending", "impact": "Prevents overlapping active memberships." }
+        ]
+      }
+    ]
+  }
+}

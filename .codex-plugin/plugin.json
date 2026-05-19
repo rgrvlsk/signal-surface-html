@@ -1,0 +1,37 @@
+{
+  "name": "signal-surface-html",
+  "version": "0.1.0",
+  "description": "Interactive HTML decision surfaces generated from editable temporary source projects.",
+  "author": {
+    "name": "Roger"
+  },
+  "license": "MIT",
+  "keywords": [
+    "interactive-html",
+    "decision-support",
+    "planning",
+    "codex-skills"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Signal Surface HTML",
+    "shortDescription": "Interactive HTML decision artifacts",
+    "longDescription": "Signal Surface HTML creates temporary, self-contained HTML artifacts for plans, reviews, feature explainers, presentations, risks, roadmaps, migrations, and research. Each artifact is compiled from a lean source project so iteration edits structured source files, not disposable HTML output. Use $s2-html as the short router; literal /s2-html is treated as a fallback text trigger.",
+    "developerName": "Roger",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Write",
+      "Planning",
+      "Review"
+    ],
+    "defaultPrompt": [
+      "$s2-html turn this plan into an editable HTML review.",
+      "$s2-html create an approval board for these findings.",
+      "$s2-html explain this feature as a walkthrough."
+    ],
+    "brandColor": "#0F766E",
+    "composerIcon": "./assets/icon.svg",
+    "logo": "./assets/logo.svg"
+  }
+}

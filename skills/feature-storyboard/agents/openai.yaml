@@ -1,0 +1,4 @@
+interface:
+  display_name: "Feature Storyboard"
+  short_description: "Graphical feature explainers"
+  default_prompt: "Use $feature-storyboard to explain this feature as a commentable HTML walkthrough."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Research Atlas"
+  short_description: "Source-backed research synthesis"
+  default_prompt: "Use $research-atlas to synthesize these sources into an interactive HTML review."

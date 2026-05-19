@@ -1,0 +1,4 @@
+interface:
+  display_name: "Plan Studio"
+  short_description: "Interactive RC plan review"
+  default_prompt: "Use $plan-studio to turn this plan into an editable HTML review artifact."

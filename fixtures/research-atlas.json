@@ -1,0 +1,20 @@
+{
+  "artifactType": "research-atlas",
+  "artifactId": "research-atlas-fixture",
+  "title": "Frontend Stack Research",
+  "summary": "Synthesize claims, citations, confidence, and open questions.",
+  "freshSessionContext": "The team is choosing a lean HTML artifact stack for Codex-generated review interfaces.",
+  "capabilities": { "editText": true, "addRemoveItems": true, "reorderItems": true, "comments": true, "decisions": true },
+  "document": {
+    "sections": [
+      {
+        "id": "claims",
+        "title": "Claims",
+        "items": [
+          { "id": "preact", "title": "Preact JSX default", "body": "Small runtime with broad community and React-like ergonomics.", "status": "pending", "impact": "Reduces agent mistakes while keeping output lean.", "details": "Source: preactjs.com and npm metadata." },
+          { "id": "mermaid-build", "title": "Mermaid at build time", "body": "Render diagrams into inline SVG instead of bundling Mermaid runtime.", "status": "pending", "impact": "Avoids large compiled artifacts." }
+        ]
+      }
+    ]
+  }
+}

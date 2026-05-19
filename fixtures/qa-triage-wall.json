@@ -1,0 +1,19 @@
+{
+  "artifactType": "qa-triage-wall",
+  "artifactId": "qa-triage-wall-fixture",
+  "title": "Checkout Regression Triage",
+  "summary": "Sort failures by repro, user impact, owner, and fix policy.",
+  "freshSessionContext": "QA reported checkout failures after a calculation refactor.",
+  "capabilities": { "editText": true, "addRemoveItems": true, "reorderItems": true, "comments": true, "decisions": true },
+  "document": {
+    "sections": [
+      {
+        "id": "failures",
+        "title": "Failures",
+        "items": [
+          { "id": "coupon-null", "title": "Null coupon crashes checkout", "body": "Repro: remove coupon after applying it, then submit.", "status": "pending", "impact": "Blocks checkout for users editing discounts." }
+        ]
+      }
+    ]
+  }
+}

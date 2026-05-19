@@ -1,0 +1,19 @@
+{
+  "artifactType": "risk-radar",
+  "artifactId": "risk-radar-fixture",
+  "title": "Payment Flow Risk Review",
+  "summary": "Map risks, mitigations, accepted exposure, and required follow-ups.",
+  "freshSessionContext": "A payment flow change needs security and operational review before release.",
+  "capabilities": { "editText": true, "addRemoveItems": true, "reorderItems": true, "comments": true, "decisions": true },
+  "document": {
+    "sections": [
+      {
+        "id": "risks",
+        "title": "Risks",
+        "items": [
+          { "id": "stale-preauth", "title": "Stale preauthorization state", "body": "A retry can show a stale card state after provider timeout.", "status": "pending", "impact": "Support may approve an order without a current hold." }
+        ]
+      }
+    ]
+  }
+}

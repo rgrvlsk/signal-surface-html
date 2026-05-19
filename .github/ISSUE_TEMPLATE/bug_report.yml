@@ -1,0 +1,57 @@
+name: Bug report
+description: Report a reproducible problem with a skill, fixture, compiler, or generated artifact.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug. Please include enough detail to reproduce it from a fresh checkout.
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What went wrong?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction steps
+      description: List the exact commands, fixture, skill invocation, or artifact steps.
+      placeholder: |
+        1. Run ...
+        2. Open ...
+        3. Observe ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What should have happened?
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: What happened instead?
+    validations:
+      required: true
+  - type: input
+    id: node
+    attributes:
+      label: Node.js version
+      placeholder: "v20.x"
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or output
+      render: shell
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Screenshots, rendered artifact notes, or suspected files.

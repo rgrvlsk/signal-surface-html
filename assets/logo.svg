@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 12 204 72" role="img" aria-label="Signal Surface">
+  <rect x="0" y="16" width="64" height="64" rx="14" fill="#0f1f1d"/>
+  <path d="M15 60 32 33l17 27H15z" fill="#2dd4bf"/>
+  <path d="M32 33 49 60H32V33z" fill="#0f766e"/>
+  <path d="M16 66h32" fill="none" stroke="#f2c14e" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="32" cy="33" r="4" fill="#f2c14e"/>
+  <text x="86" y="43" fill="#101513" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, Helvetica Neue, sans-serif" font-size="26" font-weight="720">Signal</text>
+  <text x="86" y="70" fill="#42504c" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, Helvetica Neue, sans-serif" font-size="26" font-weight="500">Surface</text>
+</svg>

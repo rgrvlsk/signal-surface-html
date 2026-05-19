@@ -1,0 +1,4 @@
+interface:
+  display_name: "Verdict Rundown"
+  short_description: "Decision boards for item lists"
+  default_prompt: "Use $verdict-rundown to review these findings in an interactive HTML board."

@@ -1,0 +1,52 @@
+{
+  "artifactType": "plan-studio",
+  "artifactId": "plan-studio-fixture",
+  "title": "Checkout Refactor RC Plan",
+  "summary": "Review the implementation plan before final approval.",
+  "freshSessionContext": "A Laravel checkout flow needs a low-risk refactor. Preserve current API contracts and focused tests.",
+  "capabilities": {
+    "editText": true,
+    "addRemoveItems": true,
+    "reorderItems": true,
+    "comments": true,
+    "decisions": true
+  },
+  "document": {
+    "sections": [
+      {
+        "id": "scope",
+        "title": "Scope",
+        "blocks": [
+          {
+            "id": "scope-main",
+            "kind": "text",
+            "title": "Implementation boundary",
+            "body": "Move checkout calculation branching into a service while preserving request and response shape."
+          }
+        ],
+        "items": [
+          {
+            "id": "keep-contract",
+            "title": "Keep contract stable",
+            "body": "No frontend payload changes unless review feedback explicitly approves them.",
+            "status": "pending",
+            "impact": "Avoids a paired frontend deploy for the first pass."
+          }
+        ]
+      },
+      {
+        "id": "tests",
+        "title": "Test Plan",
+        "items": [
+          {
+            "id": "feature-test",
+            "title": "Feature coverage",
+            "body": "Add success, validation, and edge-case assertions around the checkout endpoint.",
+            "status": "pending",
+            "impact": "Proves behavior rather than internal service shape."
+          }
+        ]
+      }
+    ]
+  }
+}

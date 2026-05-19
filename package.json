@@ -1,0 +1,54 @@
+{
+  "name": "signal-surface-html",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Codex plugin for temporary interactive HTML decision surfaces generated from editable source projects.",
+  "license": "MIT",
+  "author": "Roger Vilaseca",
+  "homepage": "https://github.com/rgrvlsk/signal-surface-html#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rgrvlsk/signal-surface-html.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rgrvlsk/signal-surface-html/issues"
+  },
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "render:fixtures": "node tests/render-fixtures.mjs",
+    "size:check": "node surface-kit/scripts/check-runtime-size.mjs",
+    "publish:check": "npm test && npm run render:fixtures && npm run size:check"
+  },
+  "files": [
+    ".codex-plugin/",
+    "assets/",
+    "fixtures/",
+    "docs/assets/",
+    "skills/",
+    "surface-kit/",
+    "tests/",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "codex",
+    "codex-plugin",
+    "interactive-html",
+    "decision-support",
+    "planning",
+    "review"
+  ],
+  "dependencies": {
+    "dompurify": "3.4.5",
+    "esbuild": "0.28.0",
+    "marked": "18.0.4",
+    "preact": "10.29.2",
+    "shiki": "4.1.0",
+    "sortablejs": "1.15.7",
+    "uplot": "1.6.32"
+  },
+  "devDependencies": {}
+}

@@ -1,0 +1,26 @@
+{
+  "artifactType": "verdict-rundown",
+  "artifactId": "verdict-rundown-fixture",
+  "title": "Release Review Findings",
+  "summary": "Approve, reject, or defer review-found issues with concrete impact examples.",
+  "freshSessionContext": "A release review found several potential regressions. Management needs a decision on what blocks ship.",
+  "capabilities": { "editText": true, "addRemoveItems": true, "reorderItems": true, "comments": true, "decisions": true },
+  "document": {
+    "sections": [
+      {
+        "id": "findings",
+        "title": "Findings",
+        "items": [
+          {
+            "id": "invoice-rounding",
+            "title": "Invoice rounding differs by one cent",
+            "body": "The new path rounds before tax in one branch.",
+            "status": "pending",
+            "impact": "Finance sees mismatched totals in reconciliation.",
+            "details": "Reference: OrderConceptCalculationService branch comparison."
+          }
+        ]
+      }
+    ]
+  }
+}
