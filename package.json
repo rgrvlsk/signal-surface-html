@@ -19,11 +19,19 @@
     "size:check": "node surface-kit/scripts/check-runtime-size.mjs",
     "publish:check": "npm test && npm run render:fixtures && npm run size:check"
   },
+  "bin": {
+    "surface-signal-html": "./bin/surface-signal-html.mjs"
+  },
   "files": [
     ".codex-plugin/",
     "assets/",
+    "bin/",
+    "CHANGELOG.md",
+    "CONTRIBUTING.md",
+    "docs/",
     "fixtures/",
     "docs/assets/",
+    "SECURITY.md",
     "skills/",
     "surface-kit/",
     "tests/",

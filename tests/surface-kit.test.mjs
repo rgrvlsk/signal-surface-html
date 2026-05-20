@@ -11,6 +11,7 @@ const createScript = join(root, "surface-kit/scripts/create-surface-project.mjs"
 const renderScript = join(root, "surface-kit/scripts/render-surface.mjs");
 const importScript = join(root, "surface-kit/scripts/import-feedback.mjs");
 const sizeScript = join(root, "surface-kit/scripts/check-runtime-size.mjs");
+const cliScript = join(root, "bin/surface-signal-html.mjs");
 const fixture = join(root, "fixtures/plan-studio.json");
 
 function run(args) {
@@ -39,6 +40,20 @@ test("creates a temporary source project with source files as the authority", as
   assert.ok(await stat(join(payload.projectRoot, "src/document.json")));
   assert.ok(await stat(join(payload.projectRoot, "src/theme.css")));
   assert.ok(await stat(join(payload.projectRoot, "feedback")));
+
+  await rm(out, { recursive: true, force: true });
+});
+
+test("package CLI wraps source project creation and rendering", async () => {
+  const out = mkdtempSync(join(tmpdir(), "surface-signal-html-cli-test-"));
+  const created = JSON.parse(run([cliScript, "create", fixture, "--out", out]));
+  const rendered = JSON.parse(run([cliScript, "render", created.projectRoot]));
+  const contract = run([cliScript, "contract"]);
+
+  assert.equal(created.projectRoot, join(out, "plan-studio-fixture"));
+  assert.equal(rendered.outputFile, join(created.projectRoot, "dist/index.html"));
+  assert.match(contract, /Source Project Rule/);
+  assert.ok(await stat(rendered.outputFile));
 
   await rm(out, { recursive: true, force: true });
 });
