@@ -1,7 +1,7 @@
 {
   "name": "surface-signal-html",
   "version": "0.2.0",
-  "description": "Interactive HTML decision surfaces generated from editable temporary source projects.",
+  "description": "Source-backed interactive HTML artifacts for planning, review, research, and decision workflows.",
   "author": {
     "name": "Roger"
   },
@@ -16,7 +16,7 @@
   "interface": {
     "displayName": "Surface Signal HTML",
     "shortDescription": "Interactive HTML decision artifacts",
-    "longDescription": "Surface Signal HTML creates temporary, self-contained HTML artifacts for plans, reviews, feature explainers, presentations, risks, roadmaps, migrations, and research. Each artifact is compiled from a lean source project so iteration edits structured source files, not disposable HTML output. Use $surface-signal-html as the canonical router or $s2-html as the shorthand alias; literal /s2-html is treated as a fallback text trigger.",
+    "longDescription": "Surface Signal HTML creates temporary, self-contained HTML artifacts for plans, reviews, feature explainers, presentations, risks, roadmaps, migrations, QA triage, ADRs, and research. Each artifact is compiled from a lean source project so iteration edits structured source files, not disposable HTML output. Use $surface-signal-html as the canonical router or $s2-html as the shorthand alias; literal /s2-html is treated as a fallback text trigger.",
     "developerName": "Roger",
     "category": "Productivity",
     "capabilities": [
@@ -32,6 +32,10 @@
     ],
     "brandColor": "#0F766E",
     "composerIcon": "./assets/icon.svg",
-    "logo": "./assets/logo.svg"
+    "logo": "./assets/logo.svg",
+    "websiteURL": "https://github.com/rgrvlsk/signal-surface-html",
+    "privacyPolicyURL": "https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement",
+    "termsOfServiceURL": "https://docs.github.com/en/site-policy/github-terms/github-terms-of-service",
+    "screenshots": []
   }
 }

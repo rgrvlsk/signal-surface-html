@@ -3,7 +3,7 @@
 [![CI](https://github.com/rgrvlsk/signal-surface-html/actions/workflows/ci.yml/badge.svg)](https://github.com/rgrvlsk/signal-surface-html/actions/workflows/ci.yml)
 [![skills.sh](https://skills.sh/b/rgrvlsk/signal-surface-html)](https://skills.sh/rgrvlsk/signal-surface-html)
 
-Surface Signal HTML is a Codex plugin for turning plans, reviews, risk lists, research, and roadmap decisions into interactive, self-contained HTML artifacts.
+Surface Signal HTML is an agent plugin for turning plans, reviews, risk lists, research, and roadmap decisions into interactive, self-contained HTML artifacts.
 
 It is built for work that is too nuanced for a plain Markdown checklist. Each artifact is compiled from an editable source project, so follow-up sessions edit structured source files and rebuild instead of patching disposable HTML output.
 
@@ -14,8 +14,18 @@ It is built for work that is too nuanced for a plain Markdown checklist. Each ar
 - A canonical router skill, `$surface-signal-html`, with `$s2-html` as the shorthand alias.
 - Ten specialized skills for plans, reviews, feature explainers, presentations, ADRs, risks, roadmaps, QA triage, migrations, and research.
 - A shared `surface-kit` compiler and runtime for consistent offline HTML output.
+- Native plugin metadata and adapter generation for Claude Code, Codex, Cursor, Gemini CLI, Windsurf, Continue, Cline, Roo Code, Goose, OpenHands, and opencode.
 - Reviewer controls for comments, approvals, rejections, deferrals, item edits, and reordering when the artifact type supports them.
 - Prompt and feedback export designed to let a fresh agent session continue from the reviewed artifact.
+
+## At A Glance
+
+| Need | Use |
+| --- | --- |
+| Agent Skills / skills.sh | `npx skills add rgrvlsk/signal-surface-html --skill surface-signal-html` |
+| All native adapters | `npx --yes surface-signal-html@latest install --target all --out .` |
+| CLI runtime only | `npx --yes surface-signal-html@latest contract` |
+| Pre-publish GitHub fallback | `npx --yes github:rgrvlsk/signal-surface-html <command> ...` |
 
 ## Quick Start
 
@@ -181,7 +191,7 @@ npm pack --dry-run
 Surface Signal HTML follows the Agent Skills `SKILL.md` directory format and is designed for multiple code agents and harnesses. It includes adapters for Claude Code, OpenHands, Cursor, Gemini CLI, Windsurf, Continue, Cline, Roo Code, Goose, and opencode.
 
 ```bash
-npx --yes surface-signal-html@latest adapters --target all --out /path/to/workspace
+npx --yes surface-signal-html@latest install --target all --out /path/to/workspace
 ```
 
 See [Agent Compatibility](docs/AGENT_COMPATIBILITY.md) and [skills.sh Readiness](docs/SKILLS_SH.md).
@@ -190,6 +200,10 @@ See [Agent Compatibility](docs/AGENT_COMPATIBILITY.md) and [skills.sh Readiness]
 
 ```text
 .codex-plugin/plugin.json
+.claude-plugin/plugin.json
+.cursor-plugin/plugin.json
+.gemini/commands/
+adapters/
 assets/
 fixtures/
 skills/

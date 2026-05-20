@@ -7,6 +7,7 @@ All notable changes to Surface Signal HTML are documented here.
 - Added a harness-agnostic `surface-signal-html` CLI for creating, rendering, importing feedback, and reading the compiler contract.
 - Added standalone skills.sh install support so copied skills can use the CLI runtime when the full plugin layout is unavailable.
 - Added native adapter generation for Claude Code, OpenHands, Cursor, Gemini CLI, Windsurf, Continue, Cline, Roo Code, Goose, and opencode.
+- Added Claude and Cursor plugin manifests plus a `surface-signal-html install` command for Superpowers-style multi-harness packaging.
 - Added public compatibility docs for Agent Skills, skills.sh, and package-based runtime use.
 
 ## 0.2.0 - 2026-05-20

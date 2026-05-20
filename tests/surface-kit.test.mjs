@@ -60,6 +60,7 @@ test("package CLI wraps source project creation and rendering", async () => {
 
 test("package CLI materializes cross-agent adapters", async () => {
   const out = mkdtempSync(join(tmpdir(), "surface-signal-html-adapters-test-"));
+  const installOut = mkdtempSync(join(tmpdir(), "surface-signal-html-install-test-"));
   const adapters = run([cliScript, "list-adapters"]).split("\n").filter(Boolean);
   const installed = JSON.parse(
     run([
@@ -95,8 +96,11 @@ test("package CLI materializes cross-agent adapters", async () => {
   assert.ok(await stat(join(out, ".roo/rules/surface-signal-html.md")));
   assert.ok(await stat(join(out, "goose/surface-signal-html.recipe.yaml")));
   assert.ok(await stat(join(out, "AGENTS.surface-signal-html.md")));
+  assert.doesNotThrow(() => JSON.parse(run([cliScript, "install", "--target", "claude", "--out", installOut])));
+  assert.ok(await stat(join(installOut, ".claude/skills/surface-signal-html/SKILL.md")));
 
   await rm(out, { recursive: true, force: true });
+  await rm(installOut, { recursive: true, force: true });
 });
 
 test("renders self-contained disposable HTML from the source project", async () => {
@@ -699,6 +703,9 @@ test("skills follow Agent Skills metadata conventions", () => {
 test("plugin identity uses surface-signal-html with s2-html as shorthand alias", () => {
   const packageJson = JSON.parse(readFileSync(join(root, "package.json"), "utf8"));
   const pluginJson = JSON.parse(readFileSync(join(root, ".codex-plugin/plugin.json"), "utf8"));
+  const claudePluginJson = JSON.parse(readFileSync(join(root, ".claude-plugin/plugin.json"), "utf8"));
+  const cursorPluginJson = JSON.parse(readFileSync(join(root, ".cursor-plugin/plugin.json"), "utf8"));
+  const geminiJson = JSON.parse(readFileSync(join(root, "gemini-extension.json"), "utf8"));
   const skillRoot = join(root, "skills");
   const skillNames = readdirSync(skillRoot);
   const canonical = readFileSync(join(skillRoot, "surface-signal-html/SKILL.md"), "utf8");
@@ -706,6 +713,11 @@ test("plugin identity uses surface-signal-html with s2-html as shorthand alias",
 
   assert.equal(packageJson.name, "surface-signal-html");
   assert.equal(pluginJson.name, "surface-signal-html");
+  assert.equal(claudePluginJson.name, "surface-signal-html");
+  assert.equal(cursorPluginJson.name, "surface-signal-html");
+  assert.equal(geminiJson.name, "surface-signal-html");
+  assert.equal(claudePluginJson.skills, "./skills/");
+  assert.equal(cursorPluginJson.skills, "./skills/");
   assert.ok(skillNames.includes("surface-signal-html"));
   assert.ok(skillNames.includes("s2-html"));
   assert.match(canonical, /^name: surface-signal-html$/m);

@@ -49,6 +49,11 @@ if (command === "adapters") {
   process.exit(0);
 }
 
+if (command === "install") {
+  await installAdapters(args.length ? args : ["--target", "all", "--out", "."]);
+  process.exit(0);
+}
+
 const script = commands[command];
 if (!script) {
   console.error(`Unknown command: ${command}`);
@@ -74,6 +79,7 @@ Usage:
   surface-signal-html check-runtime-size
   surface-signal-html list-adapters
   surface-signal-html adapters [--target all|claude|openhands|cursor|gemini|windsurf|continue|cline|roo|goose|opencode] [--out .]
+  surface-signal-html install [--target all|claude|openhands|cursor|gemini|windsurf|continue|cline|roo|goose|opencode] [--out .]
 
 The CLI wraps the source-project compiler used by the skills. It has no agent-specific assumptions.
 `);

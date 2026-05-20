@@ -2,7 +2,7 @@
   "name": "surface-signal-html",
   "version": "0.2.0",
   "type": "module",
-  "description": "Codex plugin for temporary interactive HTML decision surfaces generated from editable source projects.",
+  "description": "Source-backed interactive HTML artifacts for agent planning, review, research, and decision workflows.",
   "license": "MIT",
   "author": "Roger Vilaseca",
   "homepage": "https://github.com/rgrvlsk/signal-surface-html#readme",
@@ -23,7 +23,9 @@
     "surface-signal-html": "./bin/surface-signal-html.mjs"
   },
   "files": [
+    ".claude-plugin/",
     ".codex-plugin/",
+    ".cursor-plugin/",
     ".gemini/",
     "adapters/",
     "assets/",
@@ -55,6 +57,7 @@
     "interactive-html",
     "skills-sh",
     "skills",
+    "source-backed-artifacts",
     "decision-support",
     "planning",
     "review"

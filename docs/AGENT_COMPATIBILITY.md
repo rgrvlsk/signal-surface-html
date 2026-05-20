@@ -12,7 +12,7 @@ The skills can be installed by any harness that understands the Agent Skills dir
 Materialize native adapters into another workspace:
 
 ```bash
-npx --yes surface-signal-html@latest adapters --target all --out /path/to/workspace
+npx --yes surface-signal-html@latest install --target all --out /path/to/workspace
 ```
 
 Available targets:
@@ -33,7 +33,7 @@ Available targets:
 Use comma-separated targets for focused installs:
 
 ```bash
-npx --yes surface-signal-html@latest adapters --target claude,cursor,windsurf --out .
+npx --yes surface-signal-html@latest install --target claude,cursor,windsurf --out .
 ```
 
 ## Install With skills CLI
@@ -81,6 +81,7 @@ surface-signal-html create <spec.json> [--out /tmp/surface-signal-html]
 surface-signal-html render <surface-project>
 surface-signal-html import-feedback <surface-project> <feedback.txt|json>
 surface-signal-html check-runtime-size
+surface-signal-html install --target all --out .
 ```
 
 ## Harness Notes

@@ -16,7 +16,7 @@ Run these before pushing skill changes:
 DISABLE_TELEMETRY=1 npx --yes skills@latest add . --list
 DISABLE_TELEMETRY=1 npx --yes skills@latest add . --skill surface-signal-html --agent universal --copy -y
 for d in skills/*; do DISABLE_TELEMETRY=1 npx --yes skills-ref validate "$d"; done
-node bin/surface-signal-html.mjs adapters --target all --out "$(mktemp -d)"
+node bin/surface-signal-html.mjs install --target all --out "$(mktemp -d)"
 npm run publish:check
 npm pack --dry-run
 ```

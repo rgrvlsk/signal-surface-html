@@ -1,0 +1,20 @@
+{
+  "name": "surface-signal-html",
+  "description": "Source-backed interactive HTML artifacts for plans, reviews, risks, roadmaps, migrations, QA triage, ADRs, research, and presentations.",
+  "version": "0.2.0",
+  "author": {
+    "name": "Roger Vilaseca"
+  },
+  "homepage": "https://github.com/rgrvlsk/signal-surface-html",
+  "repository": "https://github.com/rgrvlsk/signal-surface-html",
+  "license": "MIT",
+  "keywords": [
+    "agent-skills",
+    "interactive-html",
+    "decision-support",
+    "planning",
+    "review",
+    "source-backed-artifacts"
+  ],
+  "skills": "./skills/"
+}
