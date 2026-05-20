@@ -8,7 +8,6 @@ All notable changes to Surface Signal HTML are documented here.
 - Added `$surface-signal-html` as the canonical router skill with `$s2-html` preserved as the shorthand alias.
 - Improved Plan Studio with document-first editing, compact reviewer controls, inline decision notes, responsive review lanes, and stronger Surface Signal branding.
 - Replaced the static preview asset with rendered artifact capture media.
-- Added local agent guidance ignore support for repo-specific automation notes.
 - Corrected release and installation links to the active GitHub repository.
 
 ## 0.1.0 - 2026-05-19
