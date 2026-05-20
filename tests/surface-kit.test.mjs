@@ -58,6 +58,47 @@ test("package CLI wraps source project creation and rendering", async () => {
   await rm(out, { recursive: true, force: true });
 });
 
+test("package CLI materializes cross-agent adapters", async () => {
+  const out = mkdtempSync(join(tmpdir(), "surface-signal-html-adapters-test-"));
+  const adapters = run([cliScript, "list-adapters"]).split("\n").filter(Boolean);
+  const installed = JSON.parse(
+    run([
+      cliScript,
+      "adapters",
+      "--target",
+      "claude,openhands,cursor,gemini,windsurf,continue,cline,roo,goose,opencode",
+      "--out",
+      out
+    ])
+  );
+
+  assert.deepEqual(adapters.sort(), [
+    "claude",
+    "cline",
+    "continue",
+    "cursor",
+    "gemini",
+    "goose",
+    "opencode",
+    "openhands",
+    "roo",
+    "windsurf"
+  ]);
+  assert.equal(installed.installed.length, 10);
+  assert.ok(await stat(join(out, ".claude/skills/surface-signal-html/SKILL.md")));
+  assert.ok(await stat(join(out, ".agents/skills/surface-signal-html/SKILL.md")));
+  assert.ok(await stat(join(out, ".cursor/skills/surface-signal-html/SKILL.md")));
+  assert.ok(await stat(join(out, ".gemini/skills/surface-signal-html/SKILL.md")));
+  assert.ok(await stat(join(out, ".windsurf/skills/surface-signal-html/SKILL.md")));
+  assert.ok(await stat(join(out, ".continue/prompts/surface-signal-html.md")));
+  assert.ok(await stat(join(out, ".clinerules/surface-signal-html.md")));
+  assert.ok(await stat(join(out, ".roo/rules/surface-signal-html.md")));
+  assert.ok(await stat(join(out, "goose/surface-signal-html.recipe.yaml")));
+  assert.ok(await stat(join(out, "AGENTS.surface-signal-html.md")));
+
+  await rm(out, { recursive: true, force: true });
+});
+
 test("renders self-contained disposable HTML from the source project", async () => {
   const out = mkdtempSync(join(tmpdir(), "surface-signal-html-test-"));
   const project = JSON.parse(run([createScript, fixture, "--out", out])).projectRoot;

@@ -16,6 +16,7 @@ Run these before pushing skill changes:
 DISABLE_TELEMETRY=1 npx --yes skills@latest add . --list
 DISABLE_TELEMETRY=1 npx --yes skills@latest add . --skill surface-signal-html --agent universal --copy -y
 for d in skills/*; do DISABLE_TELEMETRY=1 npx --yes skills-ref validate "$d"; done
+node bin/surface-signal-html.mjs adapters --target all --out "$(mktemp -d)"
 npm run publish:check
 npm pack --dry-run
 ```
@@ -25,6 +26,7 @@ Expected results:
 - `skills add . --list` finds all 12 skills.
 - Copy-mode install includes a standalone runtime fallback in the installed `SKILL.md`.
 - `skills-ref` validates every `SKILL.md` against the Agent Skills specification.
+- The adapter command materializes native skill/rule/prompt files for other code agents.
 - `npm run publish:check` passes tests, fixture rendering, and runtime size checks.
 - `npm pack --dry-run` includes `bin/`, `skills/`, `surface-kit/`, docs, fixtures, and package metadata.
 

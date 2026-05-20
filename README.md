@@ -178,7 +178,13 @@ npm pack --dry-run
 
 ## Agent Compatibility
 
-Surface Signal HTML follows the Agent Skills `SKILL.md` directory format and is designed for multiple code agents and harnesses. See [Agent Compatibility](docs/AGENT_COMPATIBILITY.md) and [skills.sh Readiness](docs/SKILLS_SH.md).
+Surface Signal HTML follows the Agent Skills `SKILL.md` directory format and is designed for multiple code agents and harnesses. It includes adapters for Claude Code, OpenHands, Cursor, Gemini CLI, Windsurf, Continue, Cline, Roo Code, Goose, and opencode.
+
+```bash
+npx --yes surface-signal-html@latest adapters --target all --out /path/to/workspace
+```
+
+See [Agent Compatibility](docs/AGENT_COMPATIBILITY.md) and [skills.sh Readiness](docs/SKILLS_SH.md).
 
 ## Repository Layout
 

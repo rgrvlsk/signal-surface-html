@@ -1,0 +1,26 @@
+description = "Create a source-backed interactive HTML decision artifact"
+prompt = """
+Use Surface Signal HTML for this task.
+
+Route the request to the right surface:
+- plan or RC plan -> plan-studio
+- review findings or decision lists -> verdict-rundown
+- feature or workflow explainer -> feature-storyboard
+- presentation or readout -> keynote-canvas
+- architecture decision -> adr-navigator
+- risk review -> risk-radar
+- roadmap prioritization -> roadmap-council
+- QA failures or release blockers -> qa-triage-wall
+- rollout or migration -> migration-map
+- source-heavy research -> research-atlas
+
+Read the contract with:
+`npx --yes surface-signal-html@latest contract`
+
+Create and render with:
+`npx --yes surface-signal-html@latest create <spec.json>`
+`npx --yes surface-signal-html@latest render <surface-project>`
+
+Before npm publication, use `npx --yes github:rgrvlsk/signal-surface-html <command> ...`.
+Edit only source files and rebuild. Do not patch compiled `dist/index.html`.
+"""

@@ -1,0 +1,6 @@
+description = "Shorthand alias for Surface Signal HTML"
+prompt = """
+Treat this as a Surface Signal HTML router invocation.
+Follow the same workflow as `/surface-signal-html`.
+Use `surface-signal-html` as the canonical name and `s2-html` only as shorthand.
+"""
