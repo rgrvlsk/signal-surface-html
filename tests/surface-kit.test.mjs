@@ -640,6 +640,21 @@ test("published skill instructions stay self-contained at runtime", () => {
   assert.doesNotMatch(skillText, /frontend-design|uncodixfy|skill-creator|superpowers:/i);
 });
 
+test("skills follow Agent Skills metadata conventions", () => {
+  const skillRoot = join(root, "skills");
+
+  for (const name of readdirSync(skillRoot)) {
+    const text = readFileSync(join(skillRoot, name, "SKILL.md"), "utf8");
+    const frontmatter = text.match(/^---\n([\s\S]*?)\n---\n/)?.[1] || "";
+
+    assert.match(frontmatter, new RegExp(`^name: ${name}$`, "m"));
+    assert.match(frontmatter, /^description: .+/m);
+    assert.match(frontmatter, /^license: MIT$/m);
+    assert.match(frontmatter, /^compatibility: Requires Node\.js 20\+/m);
+    assert.match(frontmatter, /^metadata:\n  surface-signal-html\.role: "[a-z-]+"$/m);
+  }
+});
+
 test("plugin identity uses surface-signal-html with s2-html as shorthand alias", () => {
   const packageJson = JSON.parse(readFileSync(join(root, "package.json"), "utf8"));
   const pluginJson = JSON.parse(readFileSync(join(root, ".codex-plugin/plugin.json"), "utf8"));
@@ -660,21 +675,28 @@ test("plugin identity uses surface-signal-html with s2-html as shorthand alias",
   assert.match(pluginJson.interface.longDescription, /\$s2-html/);
 });
 
-test("meta skill routes tasks and every skill has a full-installation fallback", () => {
+test("meta skill routes tasks and every skill has standalone runtime fallback", () => {
   const skillRoot = join(root, "skills");
   const skillNames = readdirSync(skillRoot);
   const s2 = readFileSync(join(skillRoot, "surface-signal-html/SKILL.md"), "utf8");
+  const alias = readFileSync(join(skillRoot, "s2-html/SKILL.md"), "utf8");
 
   assert.match(s2, /meta-skill/i);
   assert.match(s2, /analy[sz]e/i);
   assert.match(s2, /choose/i);
   assert.match(s2, /confidence/i);
   assert.match(s2, /ask one clarifying question/i);
+  assert.match(alias, /installed alone/i);
+  assert.match(alias, /Source-heavy synthesis: choose `research-atlas`/);
 
   for (const name of skillNames) {
     const text = readFileSync(join(skillRoot, name, "SKILL.md"), "utf8");
-    assert.match(text, /\*\*Surface Signal HTML requires the full plugin installation\.\*\*/);
+    assert.match(text, /## Runtime Resolution/);
     assert.match(text, /https:\/\/github\.com\/rgrvlsk\/signal-surface-html/);
     assert.match(text, /\.\.\/\.\.\/surface-kit\/scripts\/render-surface\.mjs/);
+    assert.match(text, /npx --yes surface-signal-html@latest/);
+    assert.match(text, /npx --yes github:rgrvlsk\/signal-surface-html/);
+    assert.match(text, /\*\*Surface Signal HTML runtime unavailable\.\*\*/);
+    assert.doesNotMatch(text, /requires the full plugin installation/);
   }
 });
