@@ -2,6 +2,12 @@
 
 All notable changes to Surface Signal HTML are documented here.
 
+## Unreleased
+
+- Added a harness-agnostic `surface-signal-html` CLI for creating, rendering, importing feedback, and reading the compiler contract.
+- Added standalone skills.sh install support so copied skills can use the CLI runtime when the full plugin layout is unavailable.
+- Added public compatibility docs for Agent Skills, skills.sh, and package-based runtime use.
+
 ## 0.2.0 - 2026-05-20
 
 - Renamed the public plugin identity and package to Surface Signal HTML.

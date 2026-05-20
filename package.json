@@ -27,6 +27,7 @@
     "assets/",
     "bin/",
     "CHANGELOG.md",
+    "CODE_OF_CONDUCT.md",
     "CONTRIBUTING.md",
     "docs/",
     "fixtures/",
@@ -42,9 +43,13 @@
     "node": ">=20"
   },
   "keywords": [
+    "agent-skill",
+    "agent-skills",
     "codex",
     "codex-plugin",
     "interactive-html",
+    "skills-sh",
+    "skills",
     "decision-support",
     "planning",
     "review"

@@ -1,6 +1,7 @@
 # Surface Signal HTML
 
 [![CI](https://github.com/rgrvlsk/signal-surface-html/actions/workflows/ci.yml/badge.svg)](https://github.com/rgrvlsk/signal-surface-html/actions/workflows/ci.yml)
+[![skills.sh](https://skills.sh/b/rgrvlsk/signal-surface-html)](https://skills.sh/rgrvlsk/signal-surface-html)
 
 Surface Signal HTML is a Codex plugin for turning plans, reviews, risk lists, research, and roadmap decisions into interactive, self-contained HTML artifacts.
 
@@ -42,19 +43,44 @@ The skill creates a temporary source project, renders `dist/index.html`, and poi
 
 ## Installation
 
-Install the complete plugin from:
+List the available skills with the open `skills` CLI:
 
-```text
-https://github.com/rgrvlsk/signal-surface-html
+```bash
+npx skills add rgrvlsk/signal-surface-html --list
 ```
 
-Do not copy only `skills/`. Every skill depends on the bundled `surface-kit` scripts and runtime.
+Install the canonical router:
 
-If a partial installation is detected, skills stop with:
-
-```markdown
-## **Surface Signal HTML requires the full plugin installation.** Install the complete plugin from https://github.com/rgrvlsk/signal-surface-html, then retry this skill. This skill cannot generate source-backed HTML without `surface-kit`.
+```bash
+npx skills add rgrvlsk/signal-surface-html --skill surface-signal-html
 ```
+
+Install the shorthand alias:
+
+```bash
+npx skills add rgrvlsk/signal-surface-html --skill s2-html
+```
+
+Install a specialized skill directly:
+
+```bash
+npx skills add rgrvlsk/signal-surface-html --skill plan-studio
+```
+
+Full plugin installs use the bundled `surface-kit` scripts. Standalone or copied skill installs use the package CLI fallback:
+
+```bash
+npx --yes surface-signal-html@latest create <spec.json>
+npx --yes surface-signal-html@latest render <surface-project>
+```
+
+Before the npm package is published, the same CLI can be run from GitHub:
+
+```bash
+npx --yes github:rgrvlsk/signal-surface-html <command> ...
+```
+
+If no compiler runtime is available, the skills stop instead of hand-building HTML.
 
 ## Skill Catalog
 
@@ -149,6 +175,10 @@ npm run render:fixtures
 npm run size:check
 npm pack --dry-run
 ```
+
+## Agent Compatibility
+
+Surface Signal HTML follows the Agent Skills `SKILL.md` directory format and is designed for multiple code agents and harnesses. See [Agent Compatibility](docs/AGENT_COMPATIBILITY.md) and [skills.sh Readiness](docs/SKILLS_SH.md).
 
 ## Repository Layout
 
