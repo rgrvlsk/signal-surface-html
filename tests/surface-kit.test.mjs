@@ -659,7 +659,7 @@ test("meta skill routes tasks and every skill has a full-installation fallback",
   for (const name of skillNames) {
     const text = readFileSync(join(skillRoot, name, "SKILL.md"), "utf8");
     assert.match(text, /\*\*Surface Signal HTML requires the full plugin installation\.\*\*/);
-    assert.match(text, /https:\/\/github\.com\/rgrvlsk\/surface-signal-html/);
+    assert.match(text, /https:\/\/github\.com\/rgrvlsk\/signal-surface-html/);
     assert.match(text, /\.\.\/\.\.\/surface-kit\/scripts\/render-surface\.mjs/);
   }
 });

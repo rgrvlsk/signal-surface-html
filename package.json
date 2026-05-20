@@ -1,17 +1,17 @@
 {
   "name": "surface-signal-html",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
   "description": "Codex plugin for temporary interactive HTML decision surfaces generated from editable source projects.",
   "license": "MIT",
   "author": "Roger Vilaseca",
-  "homepage": "https://github.com/rgrvlsk/surface-signal-html#readme",
+  "homepage": "https://github.com/rgrvlsk/signal-surface-html#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rgrvlsk/surface-signal-html.git"
+    "url": "git+https://github.com/rgrvlsk/signal-surface-html.git"
   },
   "bugs": {
-    "url": "https://github.com/rgrvlsk/surface-signal-html/issues"
+    "url": "https://github.com/rgrvlsk/signal-surface-html/issues"
   },
   "scripts": {
     "test": "node --test tests/*.test.mjs",

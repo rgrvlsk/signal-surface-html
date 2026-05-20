@@ -1,6 +1,6 @@
 # Surface Signal HTML
 
-[![CI](https://github.com/rgrvlsk/surface-signal-html/actions/workflows/ci.yml/badge.svg)](https://github.com/rgrvlsk/surface-signal-html/actions/workflows/ci.yml)
+[![CI](https://github.com/rgrvlsk/signal-surface-html/actions/workflows/ci.yml/badge.svg)](https://github.com/rgrvlsk/signal-surface-html/actions/workflows/ci.yml)
 
 Surface Signal HTML is a Codex plugin for turning plans, reviews, risk lists, research, and roadmap decisions into interactive, self-contained HTML artifacts.
 
@@ -45,7 +45,7 @@ The skill creates a temporary source project, renders `dist/index.html`, and poi
 Install the complete plugin from:
 
 ```text
-https://github.com/rgrvlsk/surface-signal-html
+https://github.com/rgrvlsk/signal-surface-html
 ```
 
 Do not copy only `skills/`. Every skill depends on the bundled `surface-kit` scripts and runtime.
@@ -53,7 +53,7 @@ Do not copy only `skills/`. Every skill depends on the bundled `surface-kit` scr
 If a partial installation is detected, skills stop with:
 
 ```markdown
-## **Surface Signal HTML requires the full plugin installation.** Install the complete plugin from https://github.com/rgrvlsk/surface-signal-html, then retry this skill. This skill cannot generate source-backed HTML without `surface-kit`.
+## **Surface Signal HTML requires the full plugin installation.** Install the complete plugin from https://github.com/rgrvlsk/signal-surface-html, then retry this skill. This skill cannot generate source-backed HTML without `surface-kit`.
 ```
 
 ## Skill Catalog

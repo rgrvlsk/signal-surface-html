@@ -1,6 +1,6 @@
 {
   "name": "surface-signal-html",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Interactive HTML decision surfaces generated from editable temporary source projects.",
   "author": {
     "name": "Roger"
