@@ -7,7 +7,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for reporting a bug. Please include enough detail to reproduce it from a fresh checkout.
+        Include enough detail to reproduce from a fresh checkout.
   - type: textarea
     id: summary
     attributes:

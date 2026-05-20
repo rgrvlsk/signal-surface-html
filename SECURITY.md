@@ -1,22 +1,22 @@
-# Security Policy
+# Security
 
-## Supported Versions
+Security fixes target the latest `main`.
 
-Security fixes are accepted for the latest release on `main`.
-
-## Reporting a Vulnerability
-
-Please report suspected vulnerabilities privately by emailing `roger@tres65.es`.
+Report vulnerabilities privately: `roger@tres65.es`.
 
 Include:
 
-- A short description of the issue.
-- Steps to reproduce or a minimal proof of concept.
-- Affected files, skills, or generated artifact behavior.
-- Any known impact or workaround.
+- Issue summary.
+- Repro steps or proof of concept.
+- Affected file, skill, command, or generated artifact behavior.
+- Impact and known workaround.
 
-Please do not open a public GitHub issue for security reports until the issue has been reviewed.
+Do not open a public issue until the report has been reviewed.
 
-## Security Notes
+High-value areas:
 
-Surface Signal HTML generates self-contained HTML artifacts from editable source projects. Reports involving script injection, unsafe SVG handling, external runtime loading, feedback import parsing, or prompt export leakage are especially useful.
+- Script injection in generated HTML.
+- Unsafe SVG/icon handling.
+- Unexpected external runtime loading.
+- Feedback import parsing.
+- Prompt export leaking hidden context.

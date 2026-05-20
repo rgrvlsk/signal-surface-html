@@ -16,7 +16,7 @@
   "interface": {
     "displayName": "Surface Signal HTML",
     "shortDescription": "Interactive HTML decision artifacts",
-    "longDescription": "Surface Signal HTML creates temporary, self-contained HTML artifacts for plans, reviews, feature explainers, presentations, risks, roadmaps, migrations, QA triage, ADRs, and research. Each artifact is compiled from a lean source project so iteration edits structured source files, not disposable HTML output. Use $surface-signal-html as the canonical router or $s2-html as the shorthand alias; literal /s2-html is treated as a fallback text trigger.",
+    "longDescription": "Surface Signal HTML creates self-contained HTML artifacts for plans, reviews, feature explainers, presentations, risks, roadmaps, migrations, QA triage, ADRs, and research. Full mode uses editable source projects; copied skills can fall back to standalone HTML. Use $surface-signal-html as the router or $s2-html as the shorthand alias.",
     "developerName": "Roger",
     "category": "Productivity",
     "capabilities": [

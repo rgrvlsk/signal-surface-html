@@ -1,4 +1,4 @@
-description = "Create a source-backed interactive HTML decision artifact"
+description = "Create a reviewable HTML decision artifact"
 prompt = """
 Use Surface Signal HTML for this task.
 
@@ -17,7 +17,8 @@ Route the request to the right surface:
 Read the contract with `npx --yes surface-signal-html@latest contract`.
 Create with `npx --yes surface-signal-html@latest create <spec.json>`.
 Render with `npx --yes surface-signal-html@latest render <surface-project>`.
-Before npm publication, use `npx --yes github:rgrvlsk/signal-surface-html <command> ...`.
+GitHub runtime fallback: `npx --yes github:rgrvlsk/signal-surface-html <command> ...`.
 
 Edit only source files and rebuild. Do not patch compiled `dist/index.html`.
+If no compiler runtime is available, create standalone HTML and label it as not source-backed.
 """

@@ -1,9 +1,10 @@
 version: "1.0.0"
 title: "Surface Signal HTML"
-description: "Create source-backed interactive HTML decision artifacts for plans, reviews, risks, roadmaps, migrations, QA triage, ADRs, research, and presentations."
+description: "Create reviewable HTML decision artifacts for plans, reviews, risks, roadmaps, migrations, QA triage, ADRs, research, and presentations."
 activities:
   - "message: Use Surface Signal HTML for this task. Read the contract, choose the best surface type, create a JSON spec, render it, and return the dist/index.html path."
   - "Read the contract with `npx --yes surface-signal-html@latest contract`."
   - "Create with `npx --yes surface-signal-html@latest create <spec.json>` and render with `npx --yes surface-signal-html@latest render <surface-project>`."
-  - "Before npm publication, use `npx --yes github:rgrvlsk/signal-surface-html <command> ...`."
+  - "GitHub runtime fallback: `npx --yes github:rgrvlsk/signal-surface-html <command> ...`."
   - "Edit `surface.json`, `src/**`, or `feedback/**`; never patch compiled `dist/index.html`."
+  - "If no compiler runtime is available, create standalone HTML and label it as not source-backed."

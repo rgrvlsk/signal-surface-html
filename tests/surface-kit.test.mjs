@@ -695,7 +695,7 @@ test("skills follow Agent Skills metadata conventions", () => {
     assert.match(frontmatter, new RegExp(`^name: ${name}$`, "m"));
     assert.match(frontmatter, /^description: .+/m);
     assert.match(frontmatter, /^license: MIT$/m);
-    assert.match(frontmatter, /^compatibility: Requires Node\.js 20\+/m);
+    assert.match(frontmatter, /^compatibility: Full source-backed mode requires Node\.js 20\+/m);
     assert.match(frontmatter, /^metadata:\n  surface-signal-html\.role: "[a-z-]+"$/m);
   }
 });
@@ -728,7 +728,7 @@ test("plugin identity uses surface-signal-html with s2-html as shorthand alias",
   assert.match(pluginJson.interface.longDescription, /\$s2-html/);
 });
 
-test("meta skill routes tasks and every skill has standalone runtime fallback", () => {
+test("meta skill routes tasks and every skill has standalone runtime and HTML fallback", () => {
   const skillRoot = join(root, "skills");
   const skillNames = readdirSync(skillRoot);
   const s2 = readFileSync(join(skillRoot, "surface-signal-html/SKILL.md"), "utf8");
@@ -749,7 +749,23 @@ test("meta skill routes tasks and every skill has standalone runtime fallback", 
     assert.match(text, /\.\.\/\.\.\/surface-kit\/scripts\/render-surface\.mjs/);
     assert.match(text, /npx --yes surface-signal-html@latest/);
     assert.match(text, /npx --yes github:rgrvlsk\/signal-surface-html/);
-    assert.match(text, /\*\*Surface Signal HTML runtime unavailable\.\*\*/);
+    assert.match(text, /## Standalone HTML Mode/);
+    assert.match(text, /\/tmp\/surface-signal-html-standalone\/<artifact-id>\.html/);
+    assert.match(text, /Export follow-up prompt/);
+    assert.match(text, /### Inline Template Contract/);
+    assert.match(text, /data-surface-mode="standalone-html"/);
+    assert.match(text, /surface-signal-html:standalone:<artifact-id>/);
+    assert.match(text, /SIGNAL_SURFACE_STANDALONE_FEEDBACK_START/);
+    assert.match(text, /SIGNAL_SURFACE_STANDALONE_FEEDBACK_END/);
+    assert.match(text, /escapeHtml/);
+    assert.match(text, /collectReviewState/);
+    assert.match(text, /localStorage/);
+    assert.match(text, /self-contained HTML file/);
+    assert.match(text, /https:\/\/github\.com\/rgrvlsk\/signal-surface-html/);
+    assert.doesNotMatch(text, /Surface Signal HTML runtime unavailable/);
+    assert.doesNotMatch(text, /Standalone Text Mode|Surface Brief/);
+    assert.match(text, /Do not imply the plugin is required, commercial, or safer/);
+    assert.doesNotMatch(text, /\bupgrade\b|buy|paid/i);
     assert.doesNotMatch(text, /requires the full plugin installation/);
   }
 });

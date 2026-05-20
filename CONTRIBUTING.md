@@ -1,8 +1,6 @@
 # Contributing
 
-Thanks for considering a contribution to Surface Signal HTML. This project is a Codex plugin, so changes should keep the skills, fixture specs, and shared `surface-kit` runtime in sync.
-
-## Development Setup
+## Setup
 
 ```bash
 npm install
@@ -10,31 +8,25 @@ npm install
 
 ## Required Checks
 
-Run the full publish check before opening a pull request:
-
 ```bash
 npm run publish:check
-```
-
-For package contents:
-
-```bash
 npm pack --dry-run
 ```
 
-## Contribution Guidelines
+## Rules
 
-- Keep generated `dist/index.html` output disposable; source projects and fixtures are authoritative.
-- Keep skill instructions self-contained and avoid references to local-only tools or absolute paths.
-- Add or update fixtures when changing artifact behavior.
-- Prefer small, focused changes that preserve the shared runtime contract.
-- Do not commit local scratch files, generated temporary projects, `node_modules/`, or `.superpowers/`.
+- Edit source projects, fixtures, skills, or runtime code; do not patch generated `dist/index.html`.
+- Keep skill instructions self-contained. No local-only paths or private tools.
+- Update fixtures when artifact behavior changes.
+- Keep adapter files thin; shared behavior belongs in skills, CLI, or `surface-kit`.
+- Do not commit scratch files, temp projects, `node_modules/`, `.superpowers/`, or generated local installs.
 
 ## Pull Requests
 
 Include:
 
-- What changed and why.
-- Which skill or runtime behavior is affected.
-- Verification output from `npm run publish:check`.
-- Screenshots or rendered artifact notes for user-visible changes.
+- What changed.
+- Why it matters to users.
+- Affected skill, runtime path, or adapter.
+- `npm run publish:check` result.
+- Screenshot or rendered artifact notes for visual changes.

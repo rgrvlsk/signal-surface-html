@@ -1,39 +1,39 @@
 # skills.sh Readiness
 
-Surface Signal HTML is structured to be installable from the public GitHub repo:
+Install from GitHub:
 
 ```bash
 npx skills add rgrvlsk/signal-surface-html
 ```
 
-There is no separate skills.sh publish command. A repo can appear on skills.sh after people install it through the `skills` CLI.
+There is no separate publish step for skills.sh. A public repo becomes usable through the `skills` CLI.
 
-## Compatibility Gates
+## Checks
 
-Run these before pushing skill changes:
+Run before pushing skill or packaging changes:
 
 ```bash
 DISABLE_TELEMETRY=1 npx --yes skills@latest add . --list
-DISABLE_TELEMETRY=1 npx --yes skills@latest add . --skill surface-signal-html --agent universal --copy -y
+tmp_home="$(mktemp -d)" && HOME="$tmp_home" DISABLE_TELEMETRY=1 npx --yes skills@latest add "$PWD" --skill surface-signal-html --agent universal --copy -g -y && rm -rf "$tmp_home"
 for d in skills/*; do DISABLE_TELEMETRY=1 npx --yes skills-ref validate "$d"; done
 node bin/surface-signal-html.mjs install --target all --out "$(mktemp -d)"
 npm run publish:check
 npm pack --dry-run
 ```
 
-Expected results:
+Expected:
 
-- `skills add . --list` finds all 12 skills.
-- Copy-mode install includes a standalone runtime fallback in the installed `SKILL.md`.
-- `skills-ref` validates every `SKILL.md` against the Agent Skills specification.
-- The adapter command materializes native skill/rule/prompt files for other code agents.
-- `npm run publish:check` passes tests, fixture rendering, and runtime size checks.
-- `npm pack --dry-run` includes `bin/`, `skills/`, `surface-kit/`, docs, fixtures, and package metadata.
+- `skills add --list` finds all 12 skills.
+- Copied skills include runtime resolution and standalone HTML fallback.
+- `skills-ref` validates every `SKILL.md`.
+- Adapter install writes native skill/rule/prompt files.
+- `publish:check` passes tests, fixture rendering, and runtime size check.
+- Package dry run includes `bin/`, `skills/`, `surface-kit/`, docs, fixtures, and metadata.
 
-## Public Repo Checklist
+## Public Repo Bar
 
-- `skills/*/SKILL.md` has valid Agent Skills frontmatter.
-- Root README explains what the skill collection does and how to install it.
-- `LICENSE`, `SECURITY.md`, `CONTRIBUTING.md`, issue templates, and CI exist.
-- Script/runtime behavior is auditable from source.
-- Skills do not silently hand-build HTML if the compiler runtime is unavailable.
+- Valid Agent Skills frontmatter in every `skills/*/SKILL.md`.
+- README explains the job, install path, and runtime modes.
+- License, security policy, contributing guide, issue templates, and CI exist.
+- Scripts and runtime behavior are auditable from source.
+- Standalone fallback is clearly labeled and never claims to be source-backed.
